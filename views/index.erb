@@ -1,0 +1,64 @@
+<% if @user_logged_out == true  %>
+  <form action='/' method="POST">
+    <div class="loginbox">
+      <div class="left-box">
+        <h1>
+          Sign Up
+        </h1>
+        <input type="text" name="f_name" placeholder="First Name"/>
+        <input type="text" name="l_name" placeholder="Last Name"/>
+        <input type="text" name="email" placeholder="Email"/>
+        <input type="text" name="birthday" placeholder="Birthday"/>
+        <input type="text" name="password" placeholder="Password"/>
+
+        <input type="submit" name="signup-button" value="Sign Up"/>
+      </div>
+      <div class="right-box">
+        <span class="signinwith">Sign in with
+          <br/>Social Network</span>
+
+        <button class="social facebook">
+          Log in with Facebook</button>
+        <button class="social twitter">
+          Log in with Twitter</button>
+        <button class="social google">
+          Log in with Google+</button>
+
+      </div>
+      <div class="or">OR</div>
+    </form>
+  </div>
+
+<% else %>
+  <div class="row mt-5">
+    <div class="col">
+      <h3>
+        <a href="/blog/new">Create a New Blog</a>
+      </h3>
+    </p>
+  </div>
+  <div class="col">
+    <h3>Current Blogs</h3>
+    <ul>
+      <% @blogs.each do |blog| %>
+        <li class="border p-3 row">
+          <div class="col-lg-9">
+            Name:
+            <%= blog.name %>
+            <br>
+            Description:
+            <%= blog.description %>
+          </div>
+          <div class="col-lg-3">
+            <% if session[:user_id] == blog.user_id %>
+              <a href="/blog/edit/<%= blog.id %>" class="btn btn-outline-dark btn-sm">Edit</a>
+              <a href="/blog/delete/<%= blog.id %>" class="btn btn-outline-dark btn-sm">Delete</a>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+</div>

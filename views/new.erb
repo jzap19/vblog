@@ -1,0 +1,35 @@
+
+<div class="row pt-4">
+  <div class="col">
+    <h2>Create a new Blog</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <p>
+      <a href="/" class="btn btn-outline-dark">Home</a>
+      <a href="/logout" class="btn btn-outline-dark">logout</a>
+    </p>
+  </div>
+  <div class="col">
+    <form action="/blog/create" method="POST">
+      <div class="row">
+        <div class="col">
+          <label for="">Blog Name</label>
+          <input type="text" name="name" class="form-control">
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <label for="">Blog Description</label>
+          <textarea cols="30" rows="10" name="description" class="form-control"></textarea>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <input type="submit" class="btn btn-primary">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<nav class="navbar  navbar-dark navbar-expand-sm" style="background-color: black">
+  <div class="container">
+    <a class="navbar-brand d-none d-sm-inline-block" href="#">
+      <img src="images/mush.png" style="width: 250px;">
+    </a>
+    <div class="navbar-nav">
+      <a href="/dashboard" class="btn btn-primary">Home</a>
+    </div>
+  </div>
+</nav>
+<h1>Welcome
+  <%= @user.first_name %>, this is your dashboard</h1>
+<a href="/blog/new">Create your first blog here!</a>
+<!-- <form action="/dashboard" method="POST"> <div> <button class="logout">Logout</button> </div> </form> -->

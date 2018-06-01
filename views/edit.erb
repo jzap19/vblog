@@ -1,0 +1,29 @@
+<div class="row pt-4">
+
+  <div class="col">
+    <h2>Edit a new Blog</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <form action="/blog/update/<%= @blog.id %>" method="POST">
+      <div class="row">
+        <div class="col">
+          <label for="">Blog Name</label>
+          <input type="text" name="name" class="form-control" value="<%= @blog.name  %>">
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <label for="">Blog Description</label>
+          <textarea cols="30" rows="10" name="description" class="form-control"><%= @blog.description %></textarea>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <input type="submit" class="btn btn-primary">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
