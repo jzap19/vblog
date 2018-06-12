@@ -1,3 +1,24 @@
-1) finish up detailed differences between user log ins and there pages using a new gem such as paperclip or other methods such as in the blog posts have ways to look into creating user generated content and have it display on the profile page.
+# R-umblr Project: 
+Part of the Software Engineering Intensive assignments in New York Code and Design Academy
 
-2) finish the styling of all the pages and make sure to use byebug to eliminate any bugs and debug thoroughly.
+## Design and Layout : By Jose Felipe Zapata
+--* created UI and UX and created log in page with css
+
+## Built With:
+..* Sinatra
+..* ActiveRecord
+..* Cookies
+..* Heroku
+
+## Deployment
+
+
+
+## Features: 
+
+
+
+
+
+
+
