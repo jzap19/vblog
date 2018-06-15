@@ -3,6 +3,11 @@ require 'sinatra/activerecord'
 require './models'
 require 'byebug'
 
+# overall good job jose. There are some pieces to this that are a bit weird.
+# like if i'm not logged in I shouldn't see the "Create a new Blog" link.
+# The dashboard page is only visible after login and it doesn't really serve it's purpose.
+# let me know if you want to talk about these and dive deeper into what I mean.
+
 set :session_secret, ENV['SUPER_API_SECRET']
 enable :sessions
 
@@ -64,24 +69,21 @@ get('/dashboard') do
 
   erb :dashboard
 end
-# post('/dashboard') do
-#   user_id = session[:user_id]
-#   if user_id.nil?
-#     return redirect '/'
-#   end
-# redirect '/index'
-# end
+
 get '/blog/new' do
   user_id = session[:user_id]
   return redirect '/' if user_id.nil?
   erb :new
 end
+
 post('/logout') do
   user_id = session[:user_id]
   return redirect '/index' if user_id.nil?
   redirect '/index'
 end
+
 post '/blog/create' do
+  # jose should probably check if the user_id is present before creating the blog post.
   Blog.create(name: params[:name], description: params[:description], user_id: session[:user_id])
   user_id = session[:user_id]
   return redirect '/' if user_id.nil?
@@ -89,9 +91,11 @@ post '/blog/create' do
 end
 
 get '/blog/edit/:id' do
-  @blog = Blog.find(params[:id])
   user_id = session[:user_id]
   return redirect '/' if user_id.nil?
+
+  # should check the user_id before finding the blog
+  @blog = Blog.find(params[:id])
   erb :edit
 end
 
